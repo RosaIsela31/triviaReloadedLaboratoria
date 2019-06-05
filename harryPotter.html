@@ -1,0 +1,198 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Harry Potter</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<!---Estilo--->
+<style>
+      #frame001 {
+          height: 800px;
+          width: 450px;
+          background-color: white;
+          border: 3px solid black;
+          margin: 4px;
+          padding: 4px;
+          border-radius: 10px;
+      }
+
+      #center001 {
+          text-align: center;
+          color: black;
+      }
+</style>
+
+<div align="center">
+  <h1><em><strong>HECHICEROS Y DRAGONES</strong></em><h1>
+</div>      <hr>  </br> </br>
+
+ <div align="center">
+    <div id="frame001">
+        <div id="center001">
+         <strong><h2> Trivia</h2> <h3>
+           Harry Potter</h3></strong>  <hr>
+     
+           <h1 id="showingQuestionHarry1"></h1>
+           <button type="button" name="button" class="firstBottons"></button> &nbsp;&nbsp;&nbsp;
+           <button type="button" name="button" class="firstBottons"></button> &nbsp;&nbsp;&nbsp;
+           <button type="button" name="button" class="firstBottons"></button>
+           <hr>
+     
+           <h1 id="showingQuestionHarry2"></h1>
+           <button type="button" name="button" class="secondBottons"></button>&nbsp;&nbsp;&nbsp;
+           <button type="button" name="button" class="secondBottons"></button>&nbsp;&nbsp;&nbsp;
+           <button type="button" name="button" class="secondBottons"></button>
+           <hr>
+     
+           <h1 id="showingQuestionHarry3"></h1>
+           <button type="button" name="button" class="thirdBottons"></button>&nbsp;&nbsp;&nbsp;
+           <button type="button" name="button" class="thirdBottons"></button>&nbsp;&nbsp;&nbsp;
+           <button type="button" name="button" class="thirdBottons"></button>
+           <hr>
+     
+           <h1 id="showingQuestionHarry4"></h1>
+           <button type="button" name="button" class="fourthBottons"></button>&nbsp;&nbsp;&nbsp;
+           <button type="button" name="button" class="fourthBottons"></button>&nbsp;&nbsp;&nbsp;
+           <button type="button" name="button" class="fourthBottons"></button>
+           <hr>
+     
+           <h2 id="forScore"></h2>
+     
+        </div> 
+       </div>
+ </div>
+
+  <form action="categories.html"> 
+      <div align="center">
+       <h4><br/>
+       <button type="submit" id="redirectingHarry"><strong>Volver a Jugar</strong></button>
+        </h4>
+      </div>
+     </form>
+
+
+
+<script>
+
+// Declarando las variables para cada una de las preguntas HarryP
+let questionHarry1 = "¿En que año se estrenó la primera película de Harry Potter?";
+let questionHarry2 = "¿Cuál es el nombre de la autora de Harry Potter?";
+let questionHarry3 = "¿Cuál es el nombre del actor que interpreta a Ron Weasley?";
+let questionHarry4 = "¿Cuántas películas conforman la saga de Harry Potter?";
+
+ // Declarando las variables para las respuestas de las preguntas HarryP
+let answersHarry1 = ["2011","2001","2007"];
+let answersHarry2 = ["E. L. James","J. K. Rowling","Stephanie Mayer"];
+let answersHarry3 = ["Sean Penn","Tom Felton", "Ruper Grint"];
+let answersHarry4 = ["7", "9", "8"];
+
+// Declarando las variables para la respuesta correcta
+let correctAnswerHarry1 = "2011";
+let correctAnswerHarry2 = "J. K. Rowling";
+let correctAnswerHarry3 = "Ruper Grint";
+let correctAnswerHarry4 = "8";
+
+// Declarando la variable para el score 
+let score = 0;
+
+// Seleccionando los elementos h1 vacíos del HTML por medio de su Id
+let h1Harry1 = document.getElementById("showingQuestionHarry1");
+let h1Harry2 = document.getElementById("showingQuestionHarry2");
+let h1Harry3 = document.getElementById("showingQuestionHarry3");
+let h1Harry4 = document.getElementById("showingQuestionHarry4");
+
+ // Seleccionando los 3 botones vacíos de cada pregunta en una variable distinta
+let bottonsEmptyHarry1 = document.getElementsByClassName("firstBottons")
+let bottonsEmptyHarry2 = document.getElementsByClassName("secondBottons")
+let bottonsEmptyHarry3 = document.getElementsByClassName("thirdBottons")
+let bottonsEmptyHarry4 = document.getElementsByClassName("fourthBottons")
+
+// Seleccionando h2 vacío del HTML por medio de su Id
+let scoreh2 = document.getElementById("forScore");
+
+// Dentro de la variable h1Harry1 voy a "escribir"  la variable questionGot1, así sucesivamente
+h1Harry1.innerHTML = questionHarry1;
+h1Harry2.innerHTML = questionHarry2;
+h1Harry3.innerHTML = questionHarry3;
+h1Harry4.innerHTML = questionHarry4;
+
+ // Imprimiendo score
+ scoreh2.innerHTML = "score: " + score + " de 4";
+
+ // Llenar los botones vacíos con una posible respuesta
+for(let i = 0; i < bottonsEmptyHarry1.length; i++){
+  bottonsEmptyHarry1[i].innerHTML = answersHarry1[i];
+}
+ for(let i = 0; i < bottonsEmptyHarry2.length; i++){
+  bottonsEmptyHarry2[i].innerHTML = answersHarry2[i];
+}
+ for(let i = 0; i < bottonsEmptyHarry3.length; i++){
+  bottonsEmptyHarry3[i].innerHTML = answersHarry3[i];
+}
+ for(let i = 0; i < bottonsEmptyHarry4.length; i++){
+  bottonsEmptyHarry4[i].innerHTML = answersHarry4[i];
+}
+
+
+ // Iterando los elementos dentro del array
+for(let i = 0; i < bottonsEmptyHarry1.length; i++){
+  bottonsEmptyHarry1[i].addEventListener("click", function(){
+    if(this.innerHTML === correctAnswerHarry1){
+      h1Harry1.innerHTML = "Correcto";
+      score ++;
+      scoreh2.innerHTML = "score: " + score + " de 4";
+    }else{
+      h1Harry1.innerHTML = "Incorrecto";
+    }
+  })
+}
+
+for(let i = 0; i < bottonsEmptyHarry2.length; i++){
+  bottonsEmptyHarry2[i].addEventListener("click", function(){
+    if(this.innerHTML === correctAnswerHarry2){
+      h1Harry2.innerHTML = "Correcto";
+      score ++;
+      scoreh2.innerHTML = "score: " + score + " de 4";
+    }else{
+      h1Harry2.innerHTML = "Incorrecto";
+    }
+  })
+}
+
+
+for(let i = 0; i < bottonsEmptyHarry3.length; i++){
+  bottonsEmptyHarry3[i].addEventListener("click", function(){
+    if(this.innerHTML === correctAnswerHarry3){
+      h1Harry3.innerHTML = "Correcto";
+      score ++;
+      scoreh2.innerHTML = "score: " + score + " de 4";
+    }else{
+      h1Harry3.innerHTML = "Incorrecto";
+    }
+  })
+}
+
+
+for(let i = 0; i < bottonsEmptyHarry4.length; i++){
+  bottonsEmptyHarry4[i].addEventListener("click", function(){
+    if(this.innerHTML === correctAnswerHarry4){
+      h1Harry4.innerHTML = "Correcto";
+      score ++;
+      scoreh2.innerHTML = "score: " + score + " de 4";
+    }else{
+      h1Harry4.innerHTML = "Incorrecto";
+    }
+  })
+}
+
+</script>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
