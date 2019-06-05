@@ -1,0 +1,173 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>GOT</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+<!---Estilo--->
+ <style>
+        #frame001 {
+            height: 800px;
+            width: 450px;
+            background-color: white;
+            border: 3px solid black;
+            margin: 4px;
+            padding: 4px;
+            border-radius: 10px;
+        }
+
+        #center001 {
+            text-align: center;
+            color: black;
+        }
+ </style>
+
+ <div align="center">
+    <h1><em><strong>HECHICEROS Y DRAGONES</strong></em><h1>
+ </div>      <hr>  </br> </br>
+
+    <div id="frame001">
+     <div id="center001">
+      <strong><h2> Trivia</h2> <h3> 
+        Game of Thrones</h3></strong>  <hr>
+  
+
+        <h1 id="showingQuestionGot1">hi</h1>
+        <button type="button" name="button" class="firstBottons"></button>
+        <button type="button" name="button" class="firstBottons"></button>
+        <button type="button" name="button" class="firstBottons"></button>
+        <hr>
+
+        <h1 id="showingQuestionGot2"></h1>
+        <button type="button" name="button" class="SecondBottons"></button>
+        <button type="button" name="button" class="SecondBottons"></button>
+        <button type="button" name="button" class="SecondBottons"></button>
+        <hr>
+
+        <h1 id="showingQuestionGot3"></h1>
+        <button type="button" name="button" class="thirdBottons"></button>
+        <button type="button" name="button" class="thirdBottons"></button>
+        <button type="button" name="button" class="thirdBottons"></button>
+        <hr>
+
+        <h1 id="showingQuestionGot4"></h1>
+        <button type="button" name="button" class="fourthBottons"></button>
+        <button type="button" name="button" class="fourthBottons"></button>
+        <button type="button" name="button" class="fourthBottons"></button>
+        <hr>
+
+     </div>   
+    </div> 
+
+
+
+<script>
+    // Declarando las variables para cada una de las preguntas GOT 
+  let questionGot1 = "De acuerdo a la serie ¿Cuál es el verdadero nombre de Jon Snow?";
+  let questionGot2 = "¿Cuál es el nombre del autor de Game of Thrones?";
+  let questionGot3 = "¿Cuántos libros se han publicado?";
+  let questionGot4 = "¿Cuál es el verdadero nombre del Rey Loco?"
+  
+  // Declarando las variables para las respuestas de las preguntas GOT
+  let answersGot1 = ["Lord Commander", "Jonny Stark", "Aegon Targaryen"];
+  let answersGot2 = ["E. L. James", "George R.R. Martin", "J. K. Rowling"];
+  let answersGot3 = ["7", "4", "5"];
+  let answersGot4 = ["Rhaegar Targaryen", "Aerys II Targaryen", "Viserys Targaryen"];
+  
+  // Declarando las variables para la respuesta correcta
+  let correctAnswerGot1 = "Aegon Targaryen";
+  let correctAnswerGot2 = "George R.R. Martin";
+  let correctAnswerGot3 = "5";
+  let correctAnswerGot4 = "Aerys II Targaryen";
+  
+  
+  // Seleccionando los elementos h1 vacíos del HTML por medio de su Id
+  let h1Got1 = document.getElementById("showingQuestionGot1");
+  let h1Got2 = document.getElementById("showingQuestionGot2");
+  let h1Got3 = document.getElementById("showingQuestionGot3");
+  let h1Got4 = document.getElementById("showingQuestionGot4");
+  
+  // Seleccionando los 3 botones vacíos de cada pregunta en una variable distinta
+  let bottonsEmptyGot1 = document.getElementsByClassName("firstBottons")
+  let bottonsEmptyGot2 = document.getElementsByClassName("SecondBottons")
+  let bottonsEmptyGot3 = document.getElementsByClassName("thirdBottons")
+  let bottonsEmptyGot4 = document.getElementsByClassName("fourthBottons")
+  
+  // Dentro de la variable h1Got1 voy a "escribir"  la variable questionGot1, así sucesivamente 
+  h1Got1.innerHTML = questionGot1;
+  h1Got2.innerHTML = questionGot2;
+  h1Got3.innerHTML = questionGot3;
+  h1Got4.innerHTML = questionGot4;
+  
+  // Llenar los botones vacíos con una posible respuesta
+  for(let i = 0; i < bottonsEmptyGot1.length; i++){
+    bottonsEmptyGot1[i].innerHTML = answersGot1[i];
+  }
+  
+  for(let i = 0; i < bottonsEmptyGot2.length; i++){
+    bottonsEmptyGot2[i].innerHTML = answersGot2[i];
+  }
+  
+  for(let i = 0; i < bottonsEmptyGot3.length; i++){
+    bottonsEmptyGot3[i].innerHTML = answersGot3[i];
+  }
+  
+  for(let i = 0; i < bottonsEmptyGot4.length; i++){
+    bottonsEmptyGot4[i].innerHTML = answersGot4[i];
+  }
+  
+  // Iterando los elementos dentro del array
+  for(let i = 0; i < bottonsEmptyGot1.length; i++){
+    bottonsEmptyGot1[i].addEventListener("click", function(){
+      if(this.innerHTML === correctAnswerGot1){
+        h1Got1.innerHTML = "Correcto";
+      }else{
+        h1Got1.innerHTML = "Incorrecto";
+      }
+    })
+  }
+  
+
+  for(let i = 0; i < bottonsEmptyGot2.length; i++){
+    bottonsEmptyGot2[i].addEventListener("click", function(){
+      if(this.innerHTML === correctAnswerGot2){
+        h1Got2.innerHTML = "Correcto";
+      }else{
+        h1Got2.innerHTML = "Incorrecto";
+      }
+    })
+  }
+
+
+  for(let i = 0; i < bottonsEmptyGot3.length; i++){
+    bottonsEmptyGot3[i].addEventListener("click", function(){
+      if(this.innerHTML === correctAnswerGot3){
+        h1Got3.innerHTML = "Correcto";
+      }else{
+        h1Got3.innerHTML = "Incorrecto";
+      }
+    })
+  }
+
+
+  for(let i = 0; i < bottonsEmptyGot4.length; i++){
+    bottonsEmptyGot4[i].addEventListener("click", function(){
+      if(this.innerHTML === correctAnswerGot4){
+        h1Got4.innerHTML = "Correcto";
+      }else{
+        h1Got4.innerHTML = "Incorrecto";
+      }
+    })
+  }
+
+  </script>
+</div>
+
+<script src="app.js"></script>
+
+ </body>
+
+</html>
